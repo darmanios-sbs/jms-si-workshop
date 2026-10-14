@@ -36,18 +36,40 @@ const initialBlocks = [
 ];
 
 const slotTimes = [
-  ["Friday","08:00","08:30"],["Friday","08:30","09:00"],["Friday","09:00","09:30"],["Friday","09:30","10:00"],
-  ["Friday","10:20","10:50"],["Friday","10:50","11:20"],["Friday","11:20","11:50"],["Friday","11:50","12:20"],
-  ["Friday","13:20","13:50"],["Friday","13:50","14:20"],["Friday","14:20","14:50"],["Friday","14:50","15:20"],
-  ["Friday","15:40","16:10"],["Friday","16:10","16:40"],
-  ["Saturday","08:00","08:30"],["Saturday","08:30","09:00"],["Saturday","09:00","09:30"],["Saturday","09:30","10:00"],
-  ["Saturday","10:20","10:50"],["Saturday","10:50","11:20"],["Saturday","11:20","11:50"],["Saturday","11:50","12:20"]
+  ["Friday","08:15","08:45"],
+  ["Friday","08:45","09:15"],
+  ["Friday","09:15","09:45"],
+  ["Friday","09:45","10:15"],
+
+  ["Friday","10:35","11:05"],
+  ["Friday","11:05","11:35"],
+  ["Friday","11:35","12:05"],
+  ["Friday","12:05","12:35"],
+
+  ["Friday","13:20","13:50"],
+  ["Friday","13:50","14:20"],
+  ["Friday","14:20","14:50"],
+  ["Friday","14:50","15:20"],
+
+  ["Friday","15:40","16:10"],
+  ["Friday","16:10","16:40"],
+
+  ["Saturday","08:00","08:30"],
+  ["Saturday","08:30","09:00"],
+  ["Saturday","09:00","09:30"],
+  ["Saturday","09:30","10:00"],
+
+  ["Saturday","10:20","10:50"],
+  ["Saturday","10:50","11:20"],
+  ["Saturday","11:20","11:50"],
+  ["Saturday","11:50","12:20"]
 ];
 
 const fixedEvents = {
   Friday: [
-    ["10:00","10:20","Coffee Break","break"],
-    ["12:20","13:20","Lunch","meal"],
+    ["08:00","08:15","Welcome and Opening Remarks","welcome"],
+    ["10:15","10:35","Coffee Break","break"],
+    ["12:35","13:20","Lunch","meal"],
     ["15:20","15:40","Coffee Break","break"],
     ["16:40","17:00","Closing remarks for day 1","closing"],
     ["18:30","19:15","Drinks reception","reception"],
@@ -61,6 +83,7 @@ const fixedEvents = {
 };
 
 const eventStyles = {
+  welcome: "bg-[#d9e6ee] border-[#abc3d2] text-[#173b56]",
   break: "bg-[#f3e6cf] border-[#ddc49b] text-[#6f4b16]",
   meal: "bg-[#e1eee2] border-[#b8d1ba] text-[#315b35]",
   closing: "bg-[#e8e5ef] border-[#cbc3db] text-[#4f4266]",
@@ -70,15 +93,15 @@ const eventStyles = {
 };
 
 const slotLookup = {
-  "0745": ["Friday","08:00","08:30"],
-  "0995": ["Friday","08:30","09:00"],
-  "0973": ["Friday","09:00","09:30"],
-  "0760": ["Friday","09:30","10:00"],
+  "0745": ["Friday","08:15","08:45"],
+  "0995": ["Friday","08:45","09:15"],
+  "0973": ["Friday","09:15","09:45"],
+  "0760": ["Friday","09:45","10:15"],
 
-  "1209": ["Friday","10:20","10:50"],
-  "1020": ["Friday","10:50","11:20"],
-  "0926": ["Friday","11:20","11:50"],
-  "0942": ["Friday","11:50","12:20"],
+  "1209": ["Friday","10:35","11:05"],
+  "1020": ["Friday","11:05","11:35"],
+  "0926": ["Friday","11:35","12:05"],
+  "0942": ["Friday","12:05","12:35"],
 
   "0941": ["Friday","13:20","13:50"],
   "0984": ["Friday","13:50","14:20"],
@@ -146,17 +169,28 @@ const blocksToShow = query.trim()
   : blocks.filter(b => b.day === day);  
 
   const eventAfterBlock = (block) => {
-    if (day === "Friday") {
-      if (block.theme === blocks.filter(b => b.day === day)[0]?.theme) return fixedEvents.Friday[0];
-      if (block.theme === blocks.filter(b => b.day === day)[1]?.theme) return fixedEvents.Friday[1];
-      if (block.theme === blocks.filter(b => b.day === day)[2]?.theme) return fixedEvents.Friday[2];
-    }
-    if (day === "Saturday" && block.theme === blocks.filter(b => b.day === day)[0]?.theme) return fixedEvents.Saturday[0];
-    return null;
-  };
+  const dayBlocks = blocks.filter(b => b.day === day);
 
+  if (day === "Friday") {
+    if (block === dayBlocks[0]) return fixedEvents.Friday[1];
+    if (block === dayBlocks[1]) return fixedEvents.Friday[2];
+    if (block === dayBlocks[2]) return fixedEvents.Friday[3];
+  }
 
-  const finalEvents = day === "Friday" ? fixedEvents.Friday.slice(3) : fixedEvents.Saturday.slice(1);
+  if (day === "Saturday" && block === dayBlocks[0]) {
+    return fixedEvents.Saturday[0];
+  }
+
+  return null;
+};
+
+const openingEvent =
+  day === "Friday" ? fixedEvents.Friday[0] : null;
+
+const finalEvents =
+  day === "Friday"
+    ? fixedEvents.Friday.slice(4)
+    : fixedEvents.Saturday.slice(1);
 
 
   const EventCard = ({ event }) => {
@@ -309,7 +343,11 @@ const blocksToShow = query.trim()
 
         <div className={query.trim() ? "space-y-2" : "space-y-5"}>
 
-          {blocksToShow.map((block, bi) => {
+  {openingEvent && !query.trim() && (
+    <EventCard event={openingEvent} />
+  )}
+
+  {blocksToShow.map((block, bi) => {
             if (!query.trim() && block.day !== day) return null;
             const event = eventAfterBlock(block);
 const matchingPapers = block.items.filter(id => {
