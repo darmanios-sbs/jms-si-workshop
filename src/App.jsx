@@ -168,7 +168,7 @@ const blocksToShow = query.trim()
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "20px",
+        gap: "12px",
         padding: "16px 20px",
         width: "100%",
         boxSizing: "border-box"
@@ -227,7 +227,7 @@ const blocksToShow = query.trim()
         <h2
           style={{
             margin: "6px 0 0 0",
-            fontSize: "18px",
+            fontSize: "20px",
             lineHeight: "1.3",
             fontWeight: 700
           }}
@@ -236,12 +236,6 @@ const blocksToShow = query.trim()
         </h2>
       </div>
 
-      <div
-        style={{
-          width: "38px",
-          flex: "0 0 38px"
-        }}
-      />
     </section>
   );
 };
@@ -254,17 +248,49 @@ const blocksToShow = query.trim()
           <h1
   className="font-serif mt-2"
   style={{
-    fontSize: "42px",
+    fontSize: "38px",
     lineHeight: "1.15",
     textAlign: "center"
   }}
 >
   Management in Times of Geopolitical Tensions and Turmoil
 </h1>
-          <p className="mt-3 text-slate-200">JMS SI R&amp;R Workshop · Saïd Business School · 23–24 October 2026</p>
-           <p>
-  Journal of Management Studies × Oxford Saïd Business School
-</p>         
+         <div
+  style={{
+    marginTop: "16px",
+    textAlign: "center",
+    maxWidth: "900px",
+    marginLeft: "auto",
+    marginRight: "auto"
+  }}
+>
+  <div
+    style={{
+      fontSize: "22px",
+      fontWeight: 600
+    }}
+  >
+    JMS SI R&R Workshop
+  </div>
+
+  <div
+    style={{
+      marginTop: "6px",
+      opacity: 0.9
+    }}
+  >
+    Journal of Management Studies × Oxford Saïd Business School
+  </div>
+
+  <div
+    style={{
+      marginTop: "6px",
+      opacity: 0.8
+    }}
+  >
+    23–24 October 2026
+  </div>
+</div>
         </div>
       </header>
 
@@ -276,7 +302,7 @@ const blocksToShow = query.trim()
                 <button key={d} onClick={() => setDay(d)} className={`px-5 py-2 rounded-lg font-semibold ${day===d ? "bg-[#9b1c31] text-white shadow" : "text-slate-600"}`}>{d}</button>
               ))}
             </div>
-            <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search paper, author or ID" className="border rounded-xl px-4 py-2 w-full sm:w-72" />
+            <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search paper, author or ID" className="border rounded-xl px-4 py-2 w-full sm:w-96" />
             <button onClick={reset} className="text-sm font-semibold text-[#9b1c31]">Reset draft</button>
           </div>
         </section>
@@ -308,7 +334,7 @@ if (query.trim() && matchingPapers.length === 0) {
       value={block.theme}
       onChange={e => rename(bi, e.target.value)}
       className="font-serif font-bold bg-transparent w-full outline-none border-b border-transparent focus:border-[#9b1c31]"
-      style={{ fontSize: "20px", lineHeight: "1.25", display: "block" }}
+      style={{ fontSize: "24px", lineHeight: "1.25", display: "block" }}
     />
     <p
       className="text-slate-600"
@@ -375,7 +401,8 @@ if (query.trim()) {
       <div
         style={{
           marginTop: "12px",
-          fontSize: "12px",
+          fontSize: "13px",
+          fontWeight: 500,
           color: "#64748b"
         }}
       >
@@ -388,19 +415,15 @@ return (
                         <article
                           key={id}
                           className="w-full hover:bg-amber-50/50"
-                          style={{ display: "flex", alignItems: "flex-start", gap: "20px", padding: "16px 20px", boxSizing: "border-box" }}
+                          style={{ display: "flex", alignItems: "flex-start", gap: "12px", padding: "16px 20px", boxSizing: "border-box" }}
                         >
                           <div style={{ width: "105px", flex: "0 0 105px", borderRight: "1px solid #e2e8f0", paddingRight: "16px", boxSizing: "border-box" }}>
                             <div className="font-bold text-[#9b1c31]" style={{ fontSize: "17px", lineHeight: "1.2" }}>{row.start}</div>
                             <div className="text-slate-500" style={{ fontSize: "13px", marginTop: "5px" }}>to {row.end}</div>
                           </div>
                           <div style={{ flex: "1 1 auto", minWidth: 0 }}>
-                            <h2 className="font-semibold" style={{ fontSize: "18px", lineHeight: "1.3", margin: "5px 0 0 0", overflowWrap: "break-word" }}>{p.title}</h2>
+                            <h2 className="font-semibold" style={{ fontSize: "20px", lineHeight: "1.3", margin: "5px 0 0 0", overflowWrap: "break-word" }}>{p.title}</h2>
                             {p.authors && <p className="text-slate-600" style={{ fontSize: "14px", lineHeight: "1.35", margin: "7px 0 0 0" }}>{p.authors}</p>}
-                          </div>
-                          <div style={{ width: "38px", flex: "0 0 38px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                            <button aria-label="Move earlier" onClick={() => move(bi,ii,-1)} className="border rounded-lg hover:bg-slate-100" style={{ width: "36px", height: "34px" }}>↑</button>
-                            <button aria-label="Move later" onClick={() => move(bi,ii,1)} className="border rounded-lg hover:bg-slate-100" style={{ width: "36px", height: "34px" }}>↓</button>
                           </div>
                         </article>
                       );
