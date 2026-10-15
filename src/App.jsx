@@ -32,7 +32,7 @@ const initialBlocks = [
   { day: "Friday", theme: "Geopolitical Pressure, Identity and Corporate Response", items: ["0941","0984","0992","0991"] },
   { day: "Friday", theme: "Responsibility, Silence and Authoritarian Markets", items: ["0928","0946"] },
   { day: "Saturday", theme: "MNE Exit, Divestment and Strategic Adaptation", items: ["0930","0985","0883","0934"] },
-  { day: "Saturday", theme: "Corporate Responsibility, Flexibility and Geopolitical Exposure", items: ["0972","0945","0970","0990"] }
+  { day: "Saturday", theme: "Corporate Responsibility, Flexibility and Geopolitical Exposure", items: ["0990","0945","0970","0972"] }
 ];
 
 const slotTimes = [
@@ -116,10 +116,10 @@ const slotLookup = {
   "0883": ["Saturday","09:00","09:30"],
   "0934": ["Saturday","09:30","10:00"],
 
-  "0972": ["Saturday","10:20","10:50"],
+  "0990": ["Saturday","10:20","10:50"],
   "0945": ["Saturday","10:50","11:20"],
   "0970": ["Saturday","11:20","11:50"],
-  "0990": ["Saturday","11:50","12:20"]
+  "0972": ["Saturday","11:50","12:20"]
 };
 
 export default function App() {
