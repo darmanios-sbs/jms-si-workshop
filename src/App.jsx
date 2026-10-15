@@ -337,7 +337,6 @@ const finalEvents =
               ))}
             </div>
             <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search paper, author or ID" className="border rounded-xl px-4 py-2 w-full sm:w-96" />
-            <button onClick={reset} className="text-sm font-semibold text-[#9b1c31]">Reset draft</button>
           </div>
         </section>
 
