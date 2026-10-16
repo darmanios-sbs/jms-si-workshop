@@ -17,7 +17,7 @@ const papers = {
   "0972": { title: "Weaponizing CSR", authors: "Shoaib Ul Haq & Subhabrata Bobby Banerjee" },
   "0973": { title: "Shout into the Void: Military Veterans’ Health Disclosures at Work", authors: "Laura J. Ferris, Richard O'Quinn, Emma B. Knight, Tarli Young & Justin Peter Brienza" },
   "0984": { title: "Corporate Warification: Explaining Nonmarket Strategies in Wartime Ukraine", authors: "David Sieber-Mengel & Dorothee Winkler" },
-  "0985": { title: "Exit to Exist: Firms’ Selective Divestment Under Sanctions", authors: "Alina Kinchinbayeva" },
+  "0985": { title: "Exit to Exist: Firms’ Selective Divestment Under Sanctions", authors: "Alina Kinchinbayeva & João Albino-Pimentel" },
   "0990": { title: "Chexim and Asian Development Bank Urban Railways Financing and Delivery in Vietnam", authors: "Roberto Cardinale" },
   "0991": { title: "Identity Disintegration Under Geopolitical Tension", authors: "Dorit Efrat-Treister, Yarin Sultan, Amir Grinstein & Ella Miron-Spektor" },
   "0992": { title: "The Timing of Multinationals’ Forced Foreign Divestments", authors: "Htwe Htwe Thein, Anna Grosman, Alvaro Cuervo-Cazurra, Sergey Sosnovskikh & Luisa Campos" },
