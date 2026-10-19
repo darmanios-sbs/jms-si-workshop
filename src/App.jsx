@@ -324,6 +324,49 @@ const finalEvents =
   >
     23–24 October 2026
   </div>
+  <div
+  style={{
+    marginTop: "18px",
+    padding: "12px 18px",
+    border: "1px solid rgba(255,255,255,0.2)",
+    borderRadius: "12px",
+    backgroundColor: "rgba(255,255,255,0.08)",
+    textAlign: "center",
+    fontSize: "14px",
+    lineHeight: "1.5"
+  }}
+>
+  <div
+    style={{
+      fontWeight: 700,
+      marginBottom: "6px"
+    }}
+  >
+    Virtual Attendance (Zoom)
+  </div>
+
+  <div>
+    <a
+      href="https://sbsox.zoom.us/j/97195261721?pwd=tQaOzPFgu5Mvty6BLaIYLVqT1A1rbl.1"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        color: "white",
+        textDecoration: "underline"
+      }}
+    >
+      Join Zoom Meeting
+    </a>
+  </div>
+
+  <div style={{ marginTop: "6px" }}>
+    Meeting ID: 971 9526 1721
+  </div>
+
+  <div>
+    Passcode: 816128
+  </div>
+</div>
 </div>
         </div>
       </header>
